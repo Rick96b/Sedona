@@ -1,579 +1,677 @@
-@font-face 
-	font-family Pt-sans
-	font-style normal
+// fonts.styl
+	
+@font-face {
+	font-family: Pt-sans;
+	font-style: normal;
+	src: url("../fonts/PT-sans/Pt-sans-regular.ttf");
+	font-weight: 400;
+}
+@font-face {
+	font-family: Pt-sans;
+	font-style: normal;
+	src: url("../fonts/PT-sans/Pt-sans-bold.ttf");
+	font-weight: 700;
+}
 
-	src url(../fonts/PT-sans/Pt-sans-regular.ttf)
-	font-weight 400
 
-@font-face
-	font-family Pt-sans
-	font-style normal
 
-	src url(../fonts/PT-sans/Pt-sans-bold.ttf)
-	font-weight 700
+// variables.styl
 
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden 
-	position absolute
+mobile-width = 320px
+table-width = 780px
+desktop-width = 1200px
 
-	width 1px
-	height 1px
-	margin -1px
-	border 0
-	padding 0
 
-	white-space nowrap
-
-	clip-path inset(100%)
-	clip rect(0 0 0 0)
-	overflow hidden
+//standart.styl
 
 visually-hidden()
-	position absolute
-
-	width 1px
-	height 1px
-	margin -1px
-	border 0
-	padding 0
-
-	white-space nowrap
-
-	clip-path inset(100%)
 	clip rect(0 0 0 0)
 	overflow hidden
 
-.centerer
-	margin-right auto
-	margin-left auto
-
-body 
-	width 100%
-	height 100%
-	margin 0	
+body
+	margin 0
 	padding 0
-
-	font-family "Pt-sans", Gilroy, Arial
-	font-weight 400
-	font-size 16px
-	line-height 26px
 
 	background-color #f2f2f2
 
-
-.main-centerer
+.main-container 
 	max-width 1200px
+	margin 0 auto
+
 	background-color #ffffff
 
-.main-header__top
-	position relative
+//header__nav.styl
 
-.main-nav__list 
+.main-header__nav
+	position relative
+	padding-bottom 55px
+
+@media (min-width table-width)
+	.main-header__nav
+		padding-bottom 0
+
+.site-nav
 	display flex
 	flex-direction column
-	width 100%
 	margin 0
 	padding 0
 
-.site-list__item
-	display flex
-	width: 100%
-	min-height 55px
-	list-style-type none
-	background-color #81b3d2
-	border-bottom 1px solid #678fa8
-	border-top 1px solid #9ac2db
-
-	.site-list__link
-		margin auto
-		font-size 18px
-		line-height 40px
-		font-weight 700
-		color #ffffff
-		text-decoration none
-		text-transform uppercase
-
-.site-list__close
-	position absolute
-	top 16px
-	right 20px
-	width 30px
-	height 30px
-	padding 0
-	background-color inherit
-	border 0
-
-
-.site-list__close::after,
-.site-list__close::before
-	content ""
-	
-	position absolute
-	top 10px
-	left -2px
-
-	width 30px
-	height 5px
-
-	background-color #ffffff
-
-.site-list__close::after
-	transform: rotate(45deg);
-
-.site-list__close::before
-	transform: rotate(-45deg);
-
-.main-header__logo-image
-	position absolute
-	bottom -28px
-	left 0
-	right 0
-	z-index 1
-	display block
-	width 102px
-	height 83px
-	margin-right auto
-	margin-left auto
-
-.main-nav__toggle
-	display block
-	min-height 55px
-	margin-left auto
-	margin-right 20px
-	padding 0
-	font inherit
-	background-color inherit
-	border 0
-
-	img 
-		display block
-
-.main-header__bottom
-	position relative
-	display flex
-	height 390px
-	background-image url(../images/back-desktop.jpg)
-	background-repeat no-repeat
-	background-position: center
-	background-size cover
-
-	.main-header__welcome-text
-		margin auto
-
-.main
-	margin-top 40px
-
-.main__slogan 
-	display block
-	width 270px
-	margin-left auto
-	margin-right auto
+	font-family "Pt-sans", Arial, sans-serif
 	font-weight 700
-	font-size 17px
-	text-transform uppercase
-	text-align center
+	font-size 18px
+	line-height 40px
 
-.reasons__title
-	display block 
-	width 280px
-	margin-right auto
-	margin-left auto
-	margin-top 35px
-	font inherit	
-	font-size 13px
-	text-transform uppercase
-	text-align center
+@media (min-width table-width)
+	.site-nav
+		flex-direction row
 
+		margin-bottom 0
 
-.reasons__list-main
-	position relative
-	display flex
-	flex-direction column
-	margin 0
-	padding 0
-	margin-top 55px
-	background-color #eeeeee
-
-.main-list__item
-	display flex
-	flex-direction column
-	list-style-type none
-	border-bottom 2px solid #d6d6d6
-
-	.main-list__title
-		margin 0
-		margin-bottom 10px
-		font-size 20px
-		font-weight 700
-		text-align center
-		text-transform uppercase
-
-	.main-list__number
-		display block
-		text-align center
-
-	.main-list__text
-		display block
-		margin 0
-		margin-top 20px
 		font-size 14px
-		text-align center
-		text-transform uppercase
+		line-height 26px
 
-.main-list__text-wrapper
-	padding-top 40px
-	padding-bottom 40px
-	padding-right 40px
-	padding-left 40px
+.site-nav__item
+	min-height 55px
+	flex-basis 0
+	flex-grow 1
 
-for ord in 3 4 5
-	.main-list__item:nth-child({ord})
-		order ord + 1
-
-.main-list__item:nth-child(6)
-	order 2
-
-.reason-1
-	order 1
-	flex-direction column
-	padding-bottom 0
-	color #ffffff
-	background-color #81b3d2 !important
-	border 0
+	background-color #81b3d2
+	border-top 1px solid #9ac2db
+	border-bottom 1px solid #678fa8
 	
-.reason-2
-	order 3
-	flex-direction column
-	padding-bottom 0
-	color #ffffff
-	background-color #81b3d2 !important
-	border 0
-		
-	img
-		width 100%
 
-
-.main-list__item:nth-child(5)
-	border 0
-
-.aside-list-wrapper
-	padding-top 0
-
-.aside-list
-	margin 0
-	padding 0
-
-.aside-list__item 
-	position relative
-	margin-top 30px
-	padding-left 70px
-	padding-right 40px
 	list-style-type none
 
-	.aside-list__title	
-		display inline-block
-		margin 0
-		margin-bottom 20px
-		font-size 18px
-		font-weight 700
-		text-transform uppercase
+@media (min-width table-width)
+	.site-nav__item
+		background-color inherit
+		border 0
 
-	.aside-list__text
-		margin 0
-		font-size 13px
-		text-transform uppercase
+	.site-nav__item:nth-child(2)
+		margin-right 50px
 
-.aside-list__item:nth-child(1)::after
-	content ""
+	.site-nav__item:nth-child(3)
+		margin-left 50px
 
-	position absolute
-	top -10px
-	left 21px
-	bottom 0
-	right 0
-
-	width 40px
-	height 39px
-
-	background-image url(../images/icon-house.svg)
-	background-repeat no-repeat
-	background-size cover
-
-.aside-list__item:nth-child(2)::after
-	content ""
-
-	position absolute
-	top -10px
-	left 23px
-	bottom 0
-	right 0
-
-	width 35px
-	height 41px
-
-	background-image url(../images/icon-gift.svg)
-	background-repeat no-repeat
-	background-size cover
-
-.aside-list__item:nth-child(3)::after
-	content ""
-
-	position absolute
-	top -10px
-	left 20px
-	bottom 0
-	right 0
-
-	width 42px
-	height 37px
-
-	background-image url(../images/icon-burger.svg)
-	background-repeat no-repeat
-	background-size cover
-
-.hotel-search
-	padding-top 35px
-
-.hotel-search__wrapper
-	min-width 280px
-	max-width 460px
-	padding-left 20px
-	padding-right 20px
-
-.hotel-search__title 
-	display block
-	font-size 20px
-	text-transform uppercase
-	text-align center
-
-.hotel-search__text
-	margin-top 25px
-	margin-bottom 40px
-	margin-right auto 
-	margin-left auto
-	text-transform uppercase
-	text-align center
-	font-size 14px
-
-
-.hotel-search__link
+.site-nav__link
 	display flex
-	height 60px
-	margin-right auto
-	margin-left auto
-	margin-bottom 50px
-	box-sizing border-box
-	color #ffffff
-	font-size 20px
-	font-weight 700
+	height 100%
+
 	text-decoration none
 	text-transform uppercase
-	background-color #81b3d2
+	text-align center
+	color #ffffff
 
 	span
 		margin auto
 
-.hotel-search__map
+@media (min-width table-width)
+	.site-nav__link
+		color #000000
+
+.main-header__nav-logo
+	position absolute
+	left calc(50% - 51px)
+
+@media (min-width table-width)
+	.main-header__nav-logo
+		top 0
+
+.main-header__nav-open
+	position absolute
+	left auto
+	right 20px
+	bottom 17px
+
+	width 23px
+	height 21px
+
+	background-image url(../images/icon-menu.svg)
+	background-color inherit
+	background-size cover
+	border 0
+
+@media (min-width table-width)
+	.main-header__nav-open
+		display none
+
+
+
+
+
+
+
+
+
+
+//header__logo-wrapper.styl
+
+.main-header__logo
+	height 390px
+
+@media (min-width table-width)
+	.main-header__logo
+		height 520px
+
+.logo-wrapper
+	display flex
+
+	background url(../images/intro-triangle.svg) 50% 100% no-repeat,
+			   url(../images/back-desktop.jpg) 50% -40px no-repeat
+
+
+@media (min-width table-width)
+
+	.logo-wrapper
+		background url(../images/intro-triangle.svg) 50% 100% no-repeat,
+			   	   url(../images/back-desktop.jpg) 50% no-repeat
+
+.logo-wrapper__text-image
+	margin auto
+	width 282px
+	height 214px
+
+@media (min-width table-width)
+	.logo-wrapper__text-image
+		width 460px
+		height 350px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//main-block.styl
+
+.main
+	padding-top 50px
+
+
+.main-slogan
 	display block
+	max-width 490px
+	margin 0 auto
+	padding 30px
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 700
+	font-size 18px
+	line-height 28px
+	text-transform uppercase
+	text-align center
+
+
+
+
+
+//main-reasons-list.styl
+
+.main__reasons
+	margin-top 35px
+
+.main__reasons-title
+	display block
+	margin-top 0
+	margin-right 20px
+	margin-left 20px
+	margin-bottom 45px
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 400
+	font-size 14px
+	line-height 24px
+	text-transform uppercase
+	text-align center
+
+.main__reasons-list
+	margin 0
+	padding 0
+
+.main-reasons-list
+	display flex
+	flex-wrap wrap
+
+.main-reasons-list__item
+	display flex
+	flex-direction column
 	width 100%
+
+	background-color #eeeeee
+
+	box-sizing border-box
+	list-style-type none
+
+@media (min-width table-width)
+	.main-reasons-list__item
+		width 33.3%
+	
+.main-reasons-list__headline
+	margin 0
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 700
+	font-size 20px
+	line-height 30px
+	text-transform uppercase
+	text-align center
+
+@media (min-width table-width)
+	.main-reasons-list__headline
+		margin 0 auto
+		max-width 150px
+
+.main-reasons-list__number
+	display block
+	margin-top 10px
+	margin-bottom 20px
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 400
+	font-size 14px
+	line-height 24px
+	text-transform uppercase
+	text-align center
+
+.main-reasons-list__text
+	margin 0 auto
+	max-width 275px
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 400
+	font-size 14px
+	line-height 24px
+	text-transform uppercase
+	text-align center
+
+.main-reasons-list__item_city
+	width 100%
+	padding 0
+
+	color #ffffff
+
+	background url(../images/intro-triangle_2.svg) 50% 0% no-repeat
+	background-color #81b3d2
+
+@media (min-width table-width)
+	.main-reasons-list__item_city
+		flex-direction row
+
+.main-reasons-list__item_city-img
+	width 100%
+	max-height 370px
+
+@media (min-width table-width)
+	.main-reasons-list__item_city-img
+		width 66.7%
+
+.main-reasons-list__item-wrapper
+	margin-top auto
+	margin-bottom auto
+	padding-top 50px
+	padding-bottom 50px
+	padding-right 20px
+	padding-left 20px
+
+
+@media (min-width table-width)
+	.main-reasons-list__item_city-wrapper
+		width 33.3%
+
+.main-reasons-list__item_bridge
+	flex-direction column
+	width 100%
+	padding 0
+
+	color #ffffff
+
+	background-color #81b3d2
+
+@media (min-width table-width)
+	.main-reasons-list__item_bridge
+		flex-direction row
+
+
+
+
+@media (min-width table-width)
+	.main-reasons-list__item_bridge-wrapper	
+		order 2
+
+		width 33.3%
+
+
+
+@media (min-width table-width)
+	.main-reasons-list__item_bridge-img
+		order 1
+
+		width 66.7%
+
+
+
+
+
+
+
+
+
+
+
+
+// aside-reasons-list
+
+.aside-list-wrapper
+	width 100%
+	padding 0
+
+	background-color inherit
+	
+.aside-list-wrapper_list
+	margin 0
+	padding 0
+	padding-left 20px
+	padding-right 20px
+
+.aside-reasons-list
+	display flex
+	flex-direction column
+	justify-content space-between
+	padding-bottom 30px
+
+@media (min-width table-width)
+	.aside-reasons-list
+		flex-direction row
+		padding 0
+
+.aside-reasons-list__item
+	position relative
+
+	padding-top 30px
+	padding-left 50px
+
+	list-style-type none
+
+@media (min-width table-width)
+	.aside-reasons-list__item
+		width 33.3%
+		padding-top 160px
+		padding-left 45px
+		padding-right 45px
+		padding-bottom 80px
+		
+
+.f-a-r::after
+	content ""
+
+	position absolute
+	top 25px
+	left 0
+
+	width 39px
+	height 37px
+
+	background-image url(../images/icon-house.svg)
+	background-size cover
+
+@media (min-width table-width)
+	.f-a-r
+		order 1
+
+	.f-a-r::after
+		top 60px
+		left 0
+		right 0
+		bottom 0
+
+		margin 0 auto
+		width 75px
+		height 72px
+
+.s-a-r::after
+	content ""
+
+	position absolute
+	top 25px
+	left 0
+
+	width 32px
+	height 38px
+
+	background-image url(../images/icon-gift.svg)
+	background-size cover
+
+@media (min-width table-width)
+	.s-a-r
+		order 3
+
+	.s-a-r::after
+		top 60px
+		left 0
+		right 0
+		bottom 0
+
+		margin 0 auto
+		width 64px
+		height 75px
+
+.t-a-r::after
+	content ""
+
+	position absolute
+	top 25px
+	left 0
+
+	width 40px
+	height 35px
+
+	background-image url(../images/icon-burger.svg)
+	background-size cover
+
+@media (min-width table-width)
+	.t-a-r
+		order 2
+
+	.t-a-r::after
+		top 60px
+		left 0
+		right 0
+		bottom 0
+
+		margin 0 auto
+		width 77px
+		height 68px
+
+.aside-reasons-list__headline
+	margin 0
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 700
+	font-size 18px
+	line-height 28px
+	text-transform uppercase
+
+@media (min-width table-width)
+	.aside-reasons-list__headline
+		font-size 20px
+		text-align center
+
+.aside-reasons-list__text
+	margin-top 10px
+	margin-bottom 0
+	color #5d5d5d
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 400
+	font-size 14px
+	line-height 24px
+	text-transform uppercase
+
+@media (min-width table-width)
+	.aside-reasons-list__text
+		text-align center
+
+
+
+
+
+
+
+
+
+// hotel-search.styl
+
+.hotel-search 
+	padding-top 30px
+	padding-bottom 50px
+
+@media (min-width table-width)
+	.hotel-search
+		padding 60px 0 0
+
+.hotel-search__headline
+	display block
+	max-width 280px
+	margin 0 auto
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 700
+	font-size 24px
+	line-height 34px
+
+
+	text-align center
+	text-transform uppercase
+
+
+@media (min-width table-width)
+	.hotel-search__headline
+		max-width 460px
+
+		font-size 26px
+		line-height 36px
+
+.hotel-search__text
+	display block 
+	max-width 280px
+	margin-left auto
+	margin-right auto
+	margin-top 30px
+	margin-bottom 40px
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 400
+	font-size 13px
+	line-height 23px
+
+	color #5d5d5d
+	text-align center
+	text-transform uppercase
+
+@media (min-width table-width)
+	.hotel-search__text
+		max-width 460px
+
+		font-size 14px
+		line-height 24px
+		
+.hotel-search__search-button
+	display block
+	height 60px
+	width 280px
+	margin 0 auto
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 700
+	font-size 20px
+	line-height 30px
+
+	text-transform uppercase
+	color #ffffff
+
+	background-color #81b3d2
+	border none
+
+@media (min-width table-width)
+	.hotel-search__search-button
+		width 460px
+
+.hotel-search__map
+	width 100%
+	height 350px
+	margin 65px 0 0
+
+	border 0
+
+
+
+
+
+// footer.styl
 
 .main-footer
 	display flex
 	flex-direction column
 
-.main-footer__slogan
-	display block
-	margin-top 35px
-	text-align center
-	text-transform uppercase
-	font-size 21px
-	font-weight 700
-
-.main-footer__list
-	display flex
-	margin-right auto
-	margin-left auto
-	margin-top 35px
-	margin-bottom 40px
-	padding 0
-
-.sn-list__item
-	width 48px
-	height 48px
-	background-color #81b3d2
-	list-style-type none
-
-	a
-		display flex
-		width 100%
-		height 100%
-
-		img
-			display block
-			margin auto
-
-.sn-list__item:nth-child(1)
-	margin-left auto
-
-.sn-list__item:nth-child(2)
-	margin-right 6px
-	margin-left 6px
-
-.sn-list__item:nth-child(3)
-	margin-right auto
-			   
-.main-footer__add
-	display flex
-	margin 0
-	margin-bottom 23px
-
-	span
-		margin-left auto
-		margin-right 12px
-		text-transform uppercase
-
-	img
-		display inline-block
-		margin-right auto
-
-
-
-
-
-
-tablet-width = 770px
-
-
-
-
-
-// ЛАМАЕМ ПОСОНЫ 
-@media (min-width tablet-width)
-	.main-nav__list
-		flex-direction row
-
-	.site-list__item
-		background-color: inherit
-		border 0
-
-		.site-list__link
-			font-size 14px
-			line-height 26px
-			color black
-
-	.site-list__close
-		visually-hidden()
-
-	.site-list__item:nth-child(2)
-		margin-right 130px
-
-	.main-nav__toggle
-		visually-hidden()
-
-	.main__slogan
-		width 500px
-
-	.reasons__title
-		width 500px
-
-	.reasons__list-main 
-		flex-direction row
-		flex-wrap wrap
-
-	.main-list__item
-		flex-grow 1	
-		border 0
-
-	.reason-1
-		flex-direction row
-		width 100%
-
-		.main-list__text-wrapper
-			flex-grow 1
-			margin auto
-			width calc(100% / 3)
-
-		img
-			width calc(100% / 1.5)
-			flex-grow 2
-
-	.reason-2
-		display flex
-		flex-direction row
-		width 100%
-
-		.main-list__text-wrapper
-			order 2
-			flex-grow 1
-			margin auto
-			width calc(100%)
-
-		img
-			order 1
-			width auto
-			flex-grow 2
-
-	.reason-3,
-	.reason-4,
-	.reason-5
-		width calc(100% / 3)
-			
-
-	.aside-list
-		display flex
-
-	.aside-list__item
-		flex-grow 1
-		padding 0
-		margin-top 60px
-		padding-top 90px
-		margin-left 40px
-		margin-right 40px
-		margin-bottom 50px
-		text-align center
-
-	.aside-list__item::after
-		margin-right auto
-		margin-left auto
-
-	.aside-list__item:nth-child(1)
-		order 1
-
-	.aside-list__item:nth-child(2)
-		order 3
-
-	.aside-list__item:nth-child(3)
-		order 2
-
-
-	.aside-list__item:nth-child(1)::after
-		left 0
-		width 75px
-		height 72px
-
-	.aside-list__item:nth-child(2)::after
-		left 0
-		width 64px
-		height 75px
-
-	.aside-list__item:nth-child(3)::after
-		left 0
-		width 77px
-		height 68px
-
+@media (min-width table-width)
 	.main-footer
 		flex-direction row
-		padding-left 60px
-		padding-right 60px
 
-	.main-footer__slogan
-		margin-bottom auto
+.main-footer__tag
+	margin 0 auto
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 700
+	font-size 21px
+	line-height 31px
+
+
+@media (min-width table-width)
+	.main-footer__tag
+		margin auto
+	
+.footer-group-list
+	display flex
+	margin 40px auto 
+	padding 0
+
+.footer-group-list__item
+	display flex
+	width 46px
+	height 48px
+	margin 0 6px
+
+	list-style-type none
+	background-color #81b3d2
+
+	img
+		margin auto
+
+.main-footer__dev
+	display flex
+	margin 0 auto 20px
+
+	font-family "Pt-sans", Arial, sans-serif
+	font-weight 400
+	font-size 14px
+	line-height 26px
+	color #000000
+	text-transform uppercase
+
+	text-decoration none
+
+	span 
+		margin-right 12px
 		margin-top auto
+		margin-bottom auto
 
-	.main-footer__add
+@media (min-width table-width)
+	.main-footer__dev
 		margin-bottom 0
-
-		span
-			margin-bottom auto
-			margin-top auto
